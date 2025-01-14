@@ -1,4 +1,4 @@
-package com.test.automation;
+package com.test.basicmethods;
 
 import java.time.Duration;
 

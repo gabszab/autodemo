@@ -1,16 +1,16 @@
-package com.test.automation.handlepageobjects;
+package com.test.handlepageobjects;
 
 import io.cucumber.junit.CucumberOptions;
 
-package com.qait.automation.getpageobjects;
 
 import org.openqa.selenium.WebDriver;
 
 
-import static com.qait.automation.getpageobjects.ObjectFileReader.getPageTitleFromFile;
-import static com.qait.automation.getpageobjects.ObjectFileReader.getTier;
-import static com.qait.automation.utils.ConfigPropertyReader.getProperty;
-import static com.qait.automation.utils.YamlReader.getYamlValue;
+import static com.test.automation.handlepageobjects.ObjectFileReader.getPageTitleFromFile;
+import static com.test.automation.handlepageobjects.automation.getpageobjects.ObjectFileReader.getTier;
+import static com.test.automation.basicmethods.ConfigPropertyReader.getProperty;
+import static com.test.basicmethods.YamlReader.getYamlValue;
+import static com.test.basicmethods.SeleniumWait.waitForElementToBeClickable;
 import static org.testng.Assert.assertTrue;
 
 
@@ -24,7 +24,7 @@ import java.io.FileInputStream;
 
 
 import org.openqa.selenium.support.PageFactory;
-import com.test.automation.SeleniumWait;
+import com.test.basicmethods.SeleniumWait;
 
 
 
@@ -49,7 +49,7 @@ public class ActionsUI {
 
 
 
-    protected ActionsUi(WebDriver driver, String pageName) {
+    protected ActionsUI(WebDriver driver, String pageName) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
         this.pageName = pageName;

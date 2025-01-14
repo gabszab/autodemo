@@ -1,4 +1,4 @@
-package com.test.automation.runners;
+package com.test.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

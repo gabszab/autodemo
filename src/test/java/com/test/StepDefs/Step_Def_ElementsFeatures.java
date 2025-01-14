@@ -1,4 +1,4 @@
-package com.test.automation.StepDefs;
+package com.test.StepDefs;
 
 public class Step_Def_ElementsFeatures {
 }
