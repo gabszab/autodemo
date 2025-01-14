@@ -1,7 +1,6 @@
-import java.time.Duration;
-import java.util.List;
+package com.test.automation;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
@@ -22,4 +21,9 @@ public class SeleniumWait {
     public WebElement waitForElementToBeClickable(WebElement element) {
         return (WebElement) wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public WebElement waitForElementToBeVisible(WebElement element) {
+        return (WebElement) wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
 }
