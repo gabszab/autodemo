@@ -1,31 +1,31 @@
 package com.test.StepDefs;
 
+import com.test.handlepageobjects.Navigation;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
+;
 
 public class Step_Def_ElementsFeatures {
 
+        WebDriver driver = new ChromeDriver();
+        Navigation navigation = new Navigation(driver, "Buttons Page");
+
+        @Given("The user is navigated to {string} page")
+        public void theUserIsNavigatedToPage(String pageName) {
+        navigation.verifyPageURL("https://demoqa.com/buttons");
 
 
+        }
 
-        @And("Scrolls down")
+
+        @When("Scrolls down")
         public void scrollsDown () {
 
         }
@@ -34,4 +34,8 @@ public class Step_Def_ElementsFeatures {
         public void clicksOnButton (String arg0){
         }
 
-    }
+
+        @Then("{string} text message should be displayed")
+        public void textMessageShouldBeDisplayed(String arg0) {
+        }
+}
