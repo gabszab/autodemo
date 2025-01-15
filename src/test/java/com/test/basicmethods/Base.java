@@ -3,6 +3,7 @@ package com.test.basicmethods;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Reporter;
+import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
