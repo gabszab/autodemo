@@ -9,7 +9,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "com.test.runners.StepDefs",
+        glue = "com.test.StepDefs",
         plugin = {"pretty", "html:target/cucumber-report.html"}
 )
 public class RunCucumberTest extends AbstractTestNGCucumberTests{
