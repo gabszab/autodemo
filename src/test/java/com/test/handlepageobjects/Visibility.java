@@ -2,6 +2,7 @@ package com.test.handlepageobjects;
 
 import com.test.basicmethods.Base;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
@@ -10,8 +11,11 @@ import static org.testng.Assert.assertTrue;
 
 public class Visibility extends Base {
 
-    public Visibility(WebDriver driver, String pageName) {
-        super(driver, pageName);
+    Base base;
+
+    public Visibility(WebDriver driver, String pageName, String specFilePath) {
+        super(driver, pageName,specFilePath);
+        base = new Base(driver, pageName, specFilePath);
     }
 
 
@@ -27,7 +31,7 @@ public class Visibility extends Base {
             e.printStackTrace();
             return result;
         }
-
     }
+
 
 }

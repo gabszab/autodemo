@@ -2,14 +2,14 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="Boundless" />
-      <option name="name" value="Boundless Repository" />
-      <option name="url" value="https://maven.atlassian.com/3rdparty/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Boundless" />
+      <option name="name" value="Boundless Repository" />
+      <option name="url" value="https://maven.atlassian.com/3rdparty/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
