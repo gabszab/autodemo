@@ -1,8 +1,6 @@
-package com.test.handlepageobjects;
+package com.test.basicmethods;
 
-import com.test.basicmethods.Base;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;

@@ -1,0 +1,12 @@
+com\test\basicmethods\Navigation.class
+com\test\basicmethods\Visibility.class
+com\test\runners\RunCucumberTest.class
+com\test\basicmethods\ChromeTest.class
+com\test\StepDefs\Step_Def_AlertsFeature.class
+com\test\basicmethods\SendText.class
+com\test\basicmethods\SpecFileReader.class
+com\test\basicmethods\Base.class
+com\test\StepDefs\Step_Def_ElementsFeatures.class
+com\test\basicmethods\YamlReader.class
+com\test\basicmethods\SeleniumWait.class
+com\test\basicmethods\Clicking.class

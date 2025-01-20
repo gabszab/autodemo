@@ -1,23 +1,10 @@
 package com.test.basicmethods;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Reporter;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
-
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.fail;
-import static org.testng.Assert.assertTrue;
 
 public class Base {
 
@@ -34,7 +21,7 @@ public class Base {
     public SpecFileReader specFileReader;
 
     public Base(WebDriver driver, String pageName, String specFilePath) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\gabor.szabo\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+
         this.driver = driver;
         this.pageName = pageName;
         this.specFilePath = (specFilePath != null) ? specFilePath : "C:\\Users\\gabor.szabo\\autodemo\\src\\test\\resources\\PageObjects";

@@ -1,8 +1,8 @@
 package com.test.StepDefs;
 
-import com.test.handlepageobjects.Clicking;
-import com.test.handlepageobjects.Navigation;
-import com.test.handlepageobjects.Visibility;
+import com.test.basicmethods.Clicking;
+import com.test.basicmethods.Navigation;
+import com.test.basicmethods.Visibility;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -10,7 +10,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 
 ;
 
@@ -37,8 +36,8 @@ public class Step_Def_ElementsFeatures {
         Visibility visibility = new Visibility(driver, "Buttons", "specFilePath");
         Clicking clicking = new Clicking(driver, "Buttons", "specFilePath");
 
-        @Given("The user is navigated to {string} page")
-        public void theUserIsNavigatedToPage(String pageName) {
+        @Given("The user is navigated to Buttons page")
+        public void theUserIsNavigatedToPage() {
         driver.get("https://demoqa.com/buttons");
         navigation.verifyPageURL("https://demoqa.com/buttons");
 

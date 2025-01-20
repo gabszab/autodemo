@@ -1,17 +1,12 @@
-package com.test.handlepageobjects;
+package com.test.basicmethods;
 
-import com.test.basicmethods.Base;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openqa.selenium.*;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import com.test.basicmethods.SeleniumWait;
 
 public class Navigation extends Base {
     Base base;
