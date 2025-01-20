@@ -34,7 +34,7 @@ public class SmallTest extends TestBase{
     }
 
     @Test
-    void testSecond() {
+    void testSecond() throws InterruptedException {
 
 
         driver.get("https://demoqa.com/buttons");
@@ -44,13 +44,10 @@ public class SmallTest extends TestBase{
         Actions actions = new Actions(driver);
         actions.doubleClick(button).perform();
 
+        Thread.sleep(4000);
 
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
 
 
-    }
 }
+
