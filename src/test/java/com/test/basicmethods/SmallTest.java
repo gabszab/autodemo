@@ -21,24 +21,24 @@ public class SmallTest extends TestBase{
     }
 
     @Test
-    void test() {
+    void pageUrl() {
 
-        driver.get("https://demoqa.com/");
-        String title = driver.getTitle();
+        driver.get("https://demoqa.com/buttons");
+        String url = driver.getCurrentUrl();
 
         new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.titleContains("DEMOQA"));
+                .until(ExpectedConditions.urlContains("buttons"));
 
-        assertThat(title).contains("DEMOQA");
-        logMessage("Page contains proper expression.");
+        assertThat(url).contains("buttons");
+        logMessage("User is on the expected page.");
     }
 
     @Test
-    void testSecond() throws InterruptedException {
+    void doubleClickButton() throws InterruptedException {
 
 
         driver.get("https://demoqa.com/buttons");
-        WebElement button = driver.findElement(By.cssSelector(".btn-primary"));
+        WebElement button = driver.findElement(By.cssSelector("#doubleClickBtn"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", button);
         Actions actions = new Actions(driver);
@@ -48,6 +48,31 @@ public class SmallTest extends TestBase{
 
         }
 
+    @Test
+    void rightClickButton() throws InterruptedException {
+
+        driver.get("https://demoqa.com/buttons");
+        WebElement button = driver.findElement(By.cssSelector("#rightClickBtn"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        Actions actions = new Actions(driver);
+        actions.contextClick(button).perform();
+
+        Thread.sleep(4000);
+    }
+
+    @Test
+    void clickButton() throws InterruptedException {
+
+        driver.get("https://demoqa.com/buttons");
+        WebElement button = driver.findElement(By.xpath("//button[text()='Click Me']"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", button);
+        Actions actions = new Actions(driver);
+        actions.click(button).perform();
+
+        Thread.sleep(4000);
+    }
 
 }
 
