@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class TestBase {
 
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeAll
     static void setupClass() {
@@ -22,11 +22,12 @@ public class TestBase {
     void setupTest() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
     }
 
     @AfterEach
-    void teardown() {
+    void tearDown() {
         driver.quit();
     }
 
