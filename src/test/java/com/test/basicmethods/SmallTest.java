@@ -43,6 +43,13 @@ public class SmallTest extends TestBase{
         js.executeScript("arguments[0].scrollIntoView(true);", button);
         Actions actions = new Actions(driver);
         actions.doubleClick(button).perform();
+        logMessage("User clicked on the 'Double Click Me' button.");
+
+        WebElement doubleClickMessage = driver.findElement(By.cssSelector("#doubleClickMessage"));
+        String messageText = doubleClickMessage.getText();
+        assertThat(messageText).isEqualTo("You have done a double click");
+        logMessage("'You have done a double click message' is displayed");
+
 
         Thread.sleep(4000);
 
@@ -57,21 +64,38 @@ public class SmallTest extends TestBase{
         js.executeScript("arguments[0].scrollIntoView(true);", button);
         Actions actions = new Actions(driver);
         actions.contextClick(button).perform();
+        logMessage("User clicked on the 'Right Click Me' button.");
+
+        WebElement rightClickMessage = driver.findElement(By.cssSelector("#rightClickMessage"));
+        String messageText = rightClickMessage.getText();
+        assertThat(messageText).isEqualTo("You have done a right click");
+        logMessage("'You have done a right click message' is displayed");
 
         Thread.sleep(4000);
+
+
     }
 
     @Test
     void clickButton() throws InterruptedException {
 
         driver.get("https://demoqa.com/buttons");
+
         WebElement button = driver.findElement(By.xpath("//button[text()='Click Me']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", button);
         Actions actions = new Actions(driver);
         actions.click(button).perform();
+        logMessage("User clicked on the 'Click Me' button.");
+
+        WebElement dynamicClickMessage = driver.findElement(By.cssSelector("#dynamicClickMessage"));
+        String messageText = dynamicClickMessage.getText();
+        assertThat(messageText).isEqualTo("You have done a dynamic click");
+        logMessage("'You have done a dynamic click message' is displayed");
 
         Thread.sleep(4000);
+
+
     }
 
 }
