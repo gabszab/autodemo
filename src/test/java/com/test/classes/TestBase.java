@@ -1,4 +1,4 @@
-package com.test.basicmethods;
+package com.test.classes;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -10,25 +10,37 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBase {
 
+    WebDriver driver;
 
-    protected WebDriver driver;
 
-    @BeforeAll
-    static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
 
     @BeforeEach
-    void setupTest() {
+    void setup() {
+
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
+        System.out.println("setupTest() metódus lefutott");
     }
 
     @AfterEach
     void tearDown() {
         driver.quit();
+    }
+
+
+
+
+    public void navigateToUrl(String url) {
+        driver.get(url);
+
+    }
+
+    public void logMessage(String message) {
+        System.out.println(message);
+
     }
 
 

@@ -1,4 +1,4 @@
-package com.test.basicmethods;
+package com.test.classes;
 
 import org.openqa.selenium.*;
 import org.testng.Reporter;

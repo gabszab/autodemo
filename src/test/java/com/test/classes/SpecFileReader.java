@@ -1,4 +1,4 @@
-package com.test.basicmethods;
+package com.test.classes;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
