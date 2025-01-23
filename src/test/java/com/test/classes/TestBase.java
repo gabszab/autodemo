@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import io.cucumber.java.Before;
+import io.cucumber.java.After;
 
 public class TestBase {
 
@@ -14,8 +16,9 @@ public class TestBase {
 
 
 
-    @BeforeEach
-    void setup() {
+
+    @Before
+    public void setup() {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -25,8 +28,8 @@ public class TestBase {
         System.out.println("setupTest() metódus lefutott");
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() {
         driver.quit();
     }
 

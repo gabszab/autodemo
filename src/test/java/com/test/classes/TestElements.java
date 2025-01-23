@@ -34,7 +34,7 @@ public class TestElements extends TestBase{
     }
 
     @Test
-    void doubleClickButton()  {
+    public void doubleClickButton()  {
 
 
         navigateToUrl("https://demoqa.com/buttons");
@@ -53,10 +53,10 @@ public class TestElements extends TestBase{
 
 
 
-        }
+    }
 
     @Test
-    void rightClickButton() throws InterruptedException {
+    void rightClickButton() {
 
         navigateToUrl("https://demoqa.com/buttons");
         WebElement rightClickButton = driver.findElement(By.cssSelector("#rightClickBtn"));
@@ -71,13 +71,13 @@ public class TestElements extends TestBase{
         assertThat(messageText).isEqualTo("You have done a right click");
         logMessage("'You have done a right click' message is displayed");
 
-        Thread.sleep(4000);
+
 
 
     }
 
     @Test
-    void clickButton() throws InterruptedException {
+    void clickButton() {
 
         navigateToUrl("https://demoqa.com/buttons");
 
@@ -93,12 +93,12 @@ public class TestElements extends TestBase{
         assertThat(messageText).isEqualTo("You have done a dynamic click");
         logMessage("'You have done a dynamic click' message is displayed");
 
-        Thread.sleep(4000);
+
 
 
     }
     @Test
-    void sendTextToTextBox() throws InterruptedException{
+    void sendTextToTextBox() {
 
         navigateToUrl("https://demoqa.com/text-box");
 
@@ -136,19 +136,14 @@ public class TestElements extends TestBase{
                 .contains(perAddress);
         logMessage("Submitted information is present in output box.");
 
-        Thread.sleep(4000);
 
-    }
-
-
-    void checkBox(){
 
     }
 
 
 
     @Test
-    void radioButtons() throws InterruptedException {
+    void radioButtons()  {
         navigateToUrl("https://demoqa.com/radio-button");
 
 
@@ -186,13 +181,13 @@ public class TestElements extends TestBase{
 
         }
 
-        Thread.sleep(4000);
+
     }
 
 
 
     @Test
-    void addNewToWebTable() throws InterruptedException {
+    void addNewToWebTable()  {
         navigateToUrl("https://demoqa.com/webtables");
 
 
@@ -220,11 +215,11 @@ public class TestElements extends TestBase{
         clickOn.click(submitButton).perform();
         logMessage("User clicked on the 'Submit' button.");
 
-        Thread.sleep(4000);
+
     }
 
     @Test
-    void deleteRecordFromWebTable() throws InterruptedException {
+    void deleteRecordFromWebTable() {
         navigateToUrl("https://demoqa.com/webtables");
 
         WebElement deleteButton = driver.findElement(By.cssSelector("#delete-record-1"));
@@ -234,11 +229,11 @@ public class TestElements extends TestBase{
         clickOn.click(deleteButton).perform();
         logMessage("User clicked on the 'Delete' button.");
 
-        Thread.sleep(2000);
+
     }
 
     @Test
-    void editRecordFromWebTable() throws InterruptedException{
+    void editRecordFromWebTable() {
         navigateToUrl("https://demoqa.com/webtables");
 
         WebElement editButton = driver.findElement(By.cssSelector("#edit-record-1"));
@@ -272,7 +267,7 @@ public class TestElements extends TestBase{
         assertThat(newFirstName).contains("Not Cierra");
         logMessage("New 'First Name' is displayed in the table");
 
-        Thread.sleep(2000);
+
 
     }
 
@@ -281,4 +276,3 @@ public class TestElements extends TestBase{
 
 
 }
-
