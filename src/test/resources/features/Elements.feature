@@ -30,6 +30,14 @@ Feature: Page elements
 
   Scenario: As a default user I am able to add new entries to the Web Table.
       Given The user is navigated to Web Tables page
-       When The users clicks on 'Add' button
+       When The user clicks on 'Add' button
         And The user adds new entries to the displayed fields of 'Registration Form' modal
-       Then The new content gets added to the table content
+       Then The user clicks on 'Submit' button and new content gets added to the table content
+
+  Scenario: As a default user I am able to edit existing entries in the Web Table.
+      Given The user is navigated to Web Tables page
+       When The user clicks on 'Edit' button
+        And The editing modal appears
+        And The user swaps the name from 'Cierra' to 'Not Cierra'
+        And The user clicks on 'Submit' button and new content gets added to the table content
+       Then The name gets updated in the table

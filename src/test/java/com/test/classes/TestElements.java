@@ -26,7 +26,7 @@ public class TestElements {
     String email = "random@email.com";
     String curAddress = "Random City and Street";
     String perAddress = "Less Random City and Street";
-
+    String newFirstName = "Not Cierra";
 
     public void navigateToUrl(String url) {
         driver.get(url);
@@ -195,96 +195,71 @@ public class TestElements {
             }
 
     }*/
-
-
-
-
-    public void addNewToWebTable()  {
-        navigateToUrl("https://demoqa.com/webtables");
-
-
+    public void clickAddButton() {
         WebElement addButton = driver.findElement(By.cssSelector("#addNewRecordButton"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", addButton);
         Actions clickOn = new Actions(driver);
         clickOn.click(addButton).perform();
         logMessage("User clicked on the 'Add' button.");
+    }
 
+    public void addNewToWebTable() {
 
         String[] fieldNames = {"#firstName", "#lastName", "#userEmail", "#age", "#salary", "#department"};
         String[] fieldValues = {"Random", "Name", "random@email.com", "40", "1000000", "Doing Things Dept."};
-
-
         for (int i = 0; i < fieldNames.length; i++) {
             WebElement field = driver.findElement(By.cssSelector(fieldNames[i]));
             field.sendKeys(fieldValues[i]);
             logMessage("User entered " + fieldValues[i] + " in the field: " + fieldNames[i]);
         }
-
-
-        WebElement submitButton = driver.findElement(By.cssSelector("#submit"));
-        js.executeScript("arguments[0].scrollIntoView(true);", submitButton);
-        clickOn.click(submitButton).perform();
-        logMessage("User clicked on the 'Submit' button.");
-
-
     }
 
+    public void modalSubmit(){
+        WebElement submitButton = driver.findElement(By.cssSelector("#submit"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", submitButton);
+        Actions clickOn = new Actions(driver);
+        clickOn.click(submitButton).perform();
+        logMessage("User clicked on the 'Submit' button.");
+    }
 
     public void deleteRecordFromWebTable() {
-
-
         WebElement deleteButton = driver.findElement(By.cssSelector("#delete-record-1"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", deleteButton);
         Actions clickOn = new Actions(driver);
         clickOn.click(deleteButton).perform();
         logMessage("User clicked on the 'Delete' button.");
-
-
     }
 
-
-    public void editRecordFromWebTable() {
-
-
+    public void clickOnEditButton(){
         WebElement editButton = driver.findElement(By.cssSelector("#edit-record-1"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", editButton);
         Actions clickOn = new Actions(driver);
         clickOn.click(editButton).perform();
         logMessage("User clicked on the 'Edit' button.");
+    }
 
+    public void verifyModal(){
         WebElement editModal = driver.findElement(By.cssSelector("#registration-form-modal"));
         String modalText = editModal.getText();
         assertThat(modalText).isEqualTo("Registration Form");
         logMessage("'Registration From' modal is displayed");
+    }
 
-        String newFirstName = "Not Cierra";
-
+    public void editFirstName() {
         WebElement modalFirstName = driver.findElement(By.cssSelector("#firstName"));
         modalFirstName.clear();
         modalFirstName.sendKeys(newFirstName);
         logMessage("User entered new 'First Name'.");
+    }
 
-        WebElement modalSubmit = driver.findElement(By.cssSelector("#submit"));
-        JavascriptExecutor jvs = (JavascriptExecutor) driver;
-        jvs.executeScript("arguments[0].scrollIntoView(true);", modalSubmit);
-        Actions clickOnSubmit = new Actions(driver);
-        clickOnSubmit.click(modalSubmit).perform();
-        logMessage("User clicked on the 'Submit' button.");
-
+    public void verifyNewName() {
         WebElement tableFirstName = driver.findElement(By.cssSelector(".rt-tr-group"));
         newFirstName = tableFirstName.getText();
         assertThat(newFirstName).contains("Not Cierra");
         logMessage("New 'First Name' is displayed in the table");
-
-
-
     }
-
-
-
-
-
 }

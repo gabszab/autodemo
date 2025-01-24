@@ -27,3 +27,17 @@ Feature: Page elements
        Then The user sees an applied verifying message
        When The user clicks on 'Impressive' radio button
        Then The user sees another applied verifying message
+
+  Scenario: As a default user I am able to add new entries to the Web Table.
+      Given The user is navigated to Web Tables page
+       When The user clicks on 'Add' button
+        And The user adds new entries to the displayed fields of 'Registration Form' modal
+       Then The user clicks on 'Submit' button and new content gets added to the table content
+
+  Scenario: As a default user I am able to edit existing entries in the Web Table.
+      Given The user is navigated to Web Tables page
+       When The user clicks on 'Edit' button
+        And The editing modal appears
+        And The user swaps the name from 'Cierra' to 'Not Cierra'
+        And The user clicks on 'Submit' button and new content gets added to the table content
+       Then The name gets updated in the table

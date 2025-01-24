@@ -132,4 +132,40 @@ public class StepDef {
     public void the_user_is_navigated_to_web_tables_page(){
         testElements.pageUrl("https://demoqa.com/webtables");
     }
+
+    @When("^The user clicks on 'Add' button$")
+    public void the_user_clicks_on_add_button(){
+        testElements.clickAddButton();
+    }
+
+    @And("^The user adds new entries to the displayed fields of 'Registration Form' modal$")
+    public void the_user_adds_new_entries_to_the_displayed_fields_of_registration_form_modal(){
+        testElements.addNewToWebTable();
+    }
+
+    @Then("^The user clicks on 'Submit' button and new content gets added to the table content$")
+    public void the_new_content_gets_added_to_the_table_contents(){
+        testElements.modalSubmit();
+
+    }
+
+    @When("^The user clicks on 'Edit' button$")
+    public void the_user_clicks_on_edit_button(){
+        testElements.clickOnEditButton();
+    }
+
+    @And("^The editing modal appears$")
+    public void the_editing_modal_appears(){
+        testElements.verifyModal();
+    }
+
+    @And("^The user swaps the name from 'Cierra' to 'Not Cierra'$")
+    public void the_user_swaps_the_name_from_cierra_to_not_cierra(){
+        testElements.editFirstName();
+    }
+
+    @Then("^The name gets updated in the table$")
+    public void the_name_gets_updated_in_the_table(){
+        testElements.verifyNewName();
+    }
 }
