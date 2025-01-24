@@ -1,11 +1,11 @@
 package com.test.StepDefs;
 
-import com.test.classes.TestBase;
 import com.test.classes.TestElements;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -40,14 +40,43 @@ public class StepDef {
 
     @Given("^The user is navigated to Buttons page$")
     public void the_user_is_navigated_to_buttons_page(){
-        System.out.println("random blah blah");
         testElements.pageUrl();
-        /*testElements.pageUrl();*/
+
     }
 
-
-    @Then("^The user double clicks on button$")
-    public void the_user_double_clicks_on_button() {
+    @When("^The user double clicks on corresponding button$")
+    public void the_user_double_clicks_on_corresponding_button() {
         testElements.doubleClickButton();
     }
+
+    @Then("^'You have done a double click' message is displayed$")
+    public void you_have_done_a_double_click_message_is_displayed(){
+        testElements.doubleClickMessage();
+    }
+
+
+
+
+    @When("^The user right clicks on corresponding button$")
+    public void the_user_right_clicks_on_corresponding_button(){
+        testElements.rightClickButton();
+    }
+
+    @Then("^'You have done a right click' message is displayed$")
+    public void you_have_done_a_right_click_message_is_displayed(){
+        testElements.rightClickMessage();
+    }
+
+
+
+    @When("^The user clicks on corresponding button$")
+    public void the_user_clicks_on_corresponding_button(){
+        testElements.clickButton();
+    }
+
+    @Then("^'You have done a dynamic click' message is displayed$")
+    public void you_have_done_a_dynamic_click_message_is_displayed(){
+        testElements.clickButtonMessage();
+    }
+
 }

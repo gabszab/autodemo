@@ -31,6 +31,11 @@ public class TestElements {
         this.driver = driver;
     }
 
+    String userName = "Random Name";
+    String email = "random@email.com";
+    String curAddress = "Random City and Street";
+    String perAddress = "Less Random City and Street";
+
 
     public void navigateToUrl(String url) {
         driver.get(url);
@@ -57,7 +62,7 @@ public class TestElements {
     }
 
     @Test
-    public void doubleClickButton()  {
+    public void doubleClickButton() {
 
 
         navigateToUrl("https://demoqa.com/buttons");
@@ -67,6 +72,10 @@ public class TestElements {
         Actions clickOn = new Actions(driver);
         clickOn.doubleClick(doubleClickButton).perform();
         logMessage("User clicked on the 'Double Click Me' button.");
+
+    }
+
+    public void doubleClickMessage(){
 
         WebElement doubleClickMessage = driver.findElement(By.cssSelector("#doubleClickMessage"));
         String messageText = doubleClickMessage.getText();
@@ -78,8 +87,8 @@ public class TestElements {
 
     }
 
-    @Test
-    void rightClickButton() {
+
+    public void rightClickButton() {
 
         navigateToUrl("https://demoqa.com/buttons");
         WebElement rightClickButton = driver.findElement(By.cssSelector("#rightClickBtn"));
@@ -89,18 +98,19 @@ public class TestElements {
         clickOn.contextClick(rightClickButton).perform();
         logMessage("User clicked on the 'Right Click Me' button.");
 
+    }
+
+    public void rightClickMessage(){
+
         WebElement rightClickMessage = driver.findElement(By.cssSelector("#rightClickMessage"));
         String messageText = rightClickMessage.getText();
         assertThat(messageText).isEqualTo("You have done a right click");
         logMessage("'You have done a right click' message is displayed");
 
-
-
-
     }
 
-    @Test
-    void clickButton() {
+
+    public void clickButton() {
 
         navigateToUrl("https://demoqa.com/buttons");
 
@@ -110,25 +120,22 @@ public class TestElements {
         Actions clickOn = new Actions(driver);
         clickOn.click(clickButton).perform();
         logMessage("User clicked on the 'Click Me' button.");
+    }
 
+    public void clickButtonMessage(){
         WebElement dynamicClickMessage = driver.findElement(By.cssSelector("#dynamicClickMessage"));
         String messageText = dynamicClickMessage.getText();
         assertThat(messageText).isEqualTo("You have done a dynamic click");
         logMessage("'You have done a dynamic click' message is displayed");
 
 
-
-
     }
-    @Test
+
     public void sendTextToTextBox() {
 
         navigateToUrl("https://demoqa.com/text-box");
 
-        String userName = "Random Name";
-        String email = "random@email.com";
-        String curAddress = "Random City and Street";
-        String perAddress = "Less Random City and Street";
+
 
         WebElement nameInputField = driver.findElement(By.cssSelector("#userName"));
         nameInputField.sendKeys(userName);
@@ -143,12 +150,21 @@ public class TestElements {
         perAddressField.sendKeys(perAddress);
         logMessage("User entered permanent address.");
 
+    }
+
+    public void sendTextSubmitButton() {
+
+
+
         WebElement submitButton = driver.findElement(By.cssSelector("#submit"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", submitButton);
         Actions clickOn = new Actions(driver);
         clickOn.click(submitButton).perform();
         logMessage("User clicked on the 'Submit' button.");
+    }
+
+    public void verifySentText(){
 
         WebElement submitClickMessage = driver.findElement(By.cssSelector("#output"));
         String messageText = submitClickMessage.getText();
