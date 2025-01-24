@@ -1,17 +1,9 @@
 package com.test.classes;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.time.Duration;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -49,71 +40,49 @@ public class TestElements {
 
 
 
-    public void pageUrl() {
-
-        navigateToUrl("https://demoqa.com/buttons");
-        String url = driver.getCurrentUrl();
-
+    public void pageUrl(String url) {
+        navigateToUrl(url);
+        String currentUrl = driver.getCurrentUrl();
         new WebDriverWait(driver, Duration.ofSeconds(5))
-                .until(ExpectedConditions.urlContains("buttons"));
-
-        assertThat(url).contains("buttons");
+                .until(ExpectedConditions.urlContains(url));
+        assertThat(currentUrl).contains(url);
         logMessage("User is on the expected page.");
     }
 
-    @Test
+
     public void doubleClickButton() {
-
-
-        navigateToUrl("https://demoqa.com/buttons");
         WebElement doubleClickButton = driver.findElement(By.cssSelector("#doubleClickBtn"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", doubleClickButton);
         Actions clickOn = new Actions(driver);
         clickOn.doubleClick(doubleClickButton).perform();
         logMessage("User clicked on the 'Double Click Me' button.");
-
     }
 
     public void doubleClickMessage(){
-
         WebElement doubleClickMessage = driver.findElement(By.cssSelector("#doubleClickMessage"));
         String messageText = doubleClickMessage.getText();
         assertThat(messageText).isEqualTo("You have done a double click");
         logMessage("'You have done a double click message' is displayed");
-
-
-
-
     }
 
-
     public void rightClickButton() {
-
-        navigateToUrl("https://demoqa.com/buttons");
         WebElement rightClickButton = driver.findElement(By.cssSelector("#rightClickBtn"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", rightClickButton);
         Actions clickOn = new Actions(driver);
         clickOn.contextClick(rightClickButton).perform();
         logMessage("User clicked on the 'Right Click Me' button.");
-
     }
 
     public void rightClickMessage(){
-
         WebElement rightClickMessage = driver.findElement(By.cssSelector("#rightClickMessage"));
         String messageText = rightClickMessage.getText();
         assertThat(messageText).isEqualTo("You have done a right click");
         logMessage("'You have done a right click' message is displayed");
-
     }
 
-
     public void clickButton() {
-
-        navigateToUrl("https://demoqa.com/buttons");
-
         WebElement clickButton = driver.findElement(By.xpath("//button[text()='Click Me']"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", clickButton);
@@ -127,16 +96,9 @@ public class TestElements {
         String messageText = dynamicClickMessage.getText();
         assertThat(messageText).isEqualTo("You have done a dynamic click");
         logMessage("'You have done a dynamic click' message is displayed");
-
-
     }
 
     public void sendTextToTextBox() {
-
-        navigateToUrl("https://demoqa.com/text-box");
-
-
-
         WebElement nameInputField = driver.findElement(By.cssSelector("#userName"));
         nameInputField.sendKeys(userName);
         logMessage("User entered name.");
@@ -149,13 +111,9 @@ public class TestElements {
         WebElement perAddressField = driver.findElement(By.cssSelector("#permanentAddress"));
         perAddressField.sendKeys(perAddress);
         logMessage("User entered permanent address.");
-
     }
 
     public void sendTextSubmitButton() {
-
-
-
         WebElement submitButton = driver.findElement(By.cssSelector("#submit"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", submitButton);
@@ -165,7 +123,6 @@ public class TestElements {
     }
 
     public void verifySentText(){
-
         WebElement submitClickMessage = driver.findElement(By.cssSelector("#output"));
         String messageText = submitClickMessage.getText();
         assertThat(messageText)
@@ -174,30 +131,47 @@ public class TestElements {
                 .contains(curAddress)
                 .contains(perAddress);
         logMessage("Submitted information is present in output box.");
-
-
-
     }
 
+    public void clickRadioButtonYes(){
+        WebElement yesRadio = driver.findElement(By.cssSelector("#yesRadio"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", yesRadio);
+        Actions clickOn = new Actions(driver);
+        clickOn.click(yesRadio).perform();
+        logMessage("User clicked on the 'Click Me' button.");
+    }
 
+    public void yesButtonMessage(){
+        WebElement yesMessage = driver.findElement(By.cssSelector("p.mt-3 span.text-success"));
+        String messageText = yesMessage.getText();
+        assertThat(messageText).contains("Yes");
+        logMessage("'You have selected Yes' message is displayed");
+    }
 
-    @Test
-    void radioButtons()  {
-        navigateToUrl("https://demoqa.com/radio-button");
+    public void clickRadioButtonImpressive(){
+        WebElement impressiveRadio = driver.findElement(By.cssSelector("#impressiveRadio"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", impressiveRadio);
+        Actions clickOn = new Actions(driver);
+        clickOn.click(impressiveRadio).perform();
+        logMessage("User clicked on the 'Click Me' button.");
+    }
 
+    public void impressiveButtonMessage(){
+        WebElement impressiveMessage = driver.findElement(By.cssSelector("p.mt-3 span.text-success"));
+        String messageText = impressiveMessage.getText();
+        assertThat(messageText).contains("Impressive");
+        logMessage("'You have selected Impressive' message is displayed");
+    }
 
+    /*public void clickRadioButtons() {
         List<WebElement> radioButtons = driver.findElements(By.cssSelector(".custom-control-input"));
-
-
         for (WebElement radioButton : radioButtons) {
-
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].scrollIntoView(true);", radioButton);
-
-
             Actions clickOn = new Actions(driver);
             clickOn.click(radioButton).perform();
-
             String radioButtonId = radioButton.getAttribute("id");
             if (radioButtonId.equals("yesRadio")) {
                 logMessage("User clicked on the 'Yes' radio button.");
@@ -205,28 +179,27 @@ public class TestElements {
                 logMessage("User clicked on the 'Impressive' radio button.");
             }
 
+            radioButtonMessage(radioButtonId);
+        }
+    }
+
+    public void radioButtonMessage(String radioButtonId){
             WebElement message = driver.findElement(By.cssSelector("p.mt-3"));
             String messageText = message.getText();
-
-
-            if (radioButton.getAttribute("id").equals("yesRadio")) {
+            if (radioButtonId.equals("yesRadio")) {
                 assertThat(messageText).isEqualTo("You have selected Yes");
                 logMessage("'You have selected Yes' message is displayed");
-            } else if (radioButton.getAttribute("id").equals("impressiveRadio")) {
+            } else if (radioButtonId.equals("impressiveRadio")) {
                 assertThat(messageText).isEqualTo("You have selected Impressive");
                 logMessage("'You have selected Impressive' message is displayed");
             }
 
-
-        }
-
-
-    }
+    }*/
 
 
 
-    @Test
-    void addNewToWebTable()  {
+
+    public void addNewToWebTable()  {
         navigateToUrl("https://demoqa.com/webtables");
 
 
@@ -257,9 +230,9 @@ public class TestElements {
 
     }
 
-    @Test
-    void deleteRecordFromWebTable() {
-        navigateToUrl("https://demoqa.com/webtables");
+
+    public void deleteRecordFromWebTable() {
+
 
         WebElement deleteButton = driver.findElement(By.cssSelector("#delete-record-1"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -271,9 +244,9 @@ public class TestElements {
 
     }
 
-    @Test
-    void editRecordFromWebTable() {
-        navigateToUrl("https://demoqa.com/webtables");
+
+    public void editRecordFromWebTable() {
+
 
         WebElement editButton = driver.findElement(By.cssSelector("#edit-record-1"));
         JavascriptExecutor js = (JavascriptExecutor) driver;

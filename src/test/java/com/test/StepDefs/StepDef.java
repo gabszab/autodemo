@@ -5,6 +5,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -40,7 +41,7 @@ public class StepDef {
 
     @Given("^The user is navigated to Buttons page$")
     public void the_user_is_navigated_to_buttons_page(){
-        testElements.pageUrl();
+        testElements.pageUrl("https://demoqa.com/buttons");
 
     }
 
@@ -79,4 +80,56 @@ public class StepDef {
         testElements.clickButtonMessage();
     }
 
+
+    @Given("^The user is navigated to Text Box page$")
+    public void the_user_is_navigated_to_text_box_page(){
+        testElements.pageUrl("https://demoqa.com/text-box");
+    }
+
+
+    @When("^The user enters data to the given fields$")
+    public void the_user_enters_data_to_the_given_fields(){
+        testElements.sendTextToTextBox();
+    }
+
+    @And("^Clicks on 'Submit' button$")
+    public void clicks_on_submit_button(){
+        testElements.sendTextSubmitButton();
+    }
+
+    @Then("^The user is able to see the entered data under the input fields$")
+    public void the_user_is_able_to_see_the_entered_data_under_the_input_fields(){
+        testElements.verifySentText();
+    }
+
+    @Given("^The user is navigated to Radio Buttons page$")
+    public void the_user_is_navigated_to_radio_buttons_page() {
+        testElements.pageUrl("https://demoqa.com/radio-button");
+    }
+
+    @When("^The user clicks on 'Yes' radio button$")
+    public void the_user_clicks_on_yes_radio_button(){
+        testElements.clickRadioButtonYes();
+    }
+
+    @Then("^The user sees an applied verifying message$")
+    public void the_user_sees_an_applied_verifying_message(){
+        testElements.yesButtonMessage();
+
+    }
+
+    @When("^The user clicks on 'Impressive' radio button$")
+    public void the_user_clicks_on_impressive_radio_button(){
+        testElements.clickRadioButtonImpressive();
+    }
+
+    @Then("^The user sees another applied verifying message$")
+    public void the_user_sees_another_applied_verifying_message(){
+        testElements.impressiveButtonMessage();
+    }
+
+    @Given("^The user is navigated to Web Tables page$")
+    public void the_user_is_navigated_to_web_tables_page(){
+        testElements.pageUrl("https://demoqa.com/webtables");
+    }
 }

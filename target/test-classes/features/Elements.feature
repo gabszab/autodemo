@@ -14,3 +14,16 @@ Feature: Page elements
       Given The user is navigated to Buttons page
        When The user clicks on corresponding button
        Then 'You have done a dynamic click' message is displayed
+
+  Scenario: As a default user I am able to fill out a text form.
+      Given The user is navigated to Text Box page
+       When The user enters data to the given fields
+        And Clicks on 'Submit' button
+       Then The user is able to see the entered data under the input fields
+
+  Scenario: As a default user I am able to click on both radio buttons.
+      Given The user is navigated to Radio Buttons page
+       When The user clicks on 'Yes' radio button
+       Then The user sees an applied verifying message
+       When The user clicks on 'Impressive' radio button
+       Then The user sees another applied verifying message
