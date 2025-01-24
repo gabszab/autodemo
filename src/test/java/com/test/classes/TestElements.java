@@ -1,9 +1,17 @@
 package com.test.classes;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,12 +23,27 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TestElements extends TestBase{
+public class TestElements {
+
+    WebDriver driver;
+
+    public TestElements(WebDriver driver){
+        this.driver = driver;
+    }
+
+
+    public void navigateToUrl(String url) {
+        driver.get(url);
+
+    }
+
+    public void logMessage(String message) {
+        System.out.println(message);
+
+    }
 
 
 
-
-    @Test
     public void pageUrl() {
 
         navigateToUrl("https://demoqa.com/buttons");
@@ -98,7 +121,7 @@ public class TestElements extends TestBase{
 
     }
     @Test
-    void sendTextToTextBox() {
+    public void sendTextToTextBox() {
 
         navigateToUrl("https://demoqa.com/text-box");
 
